@@ -13,5 +13,9 @@ export const TitlePage = styled.div`
   font-size: 24px;
   line-height: 36px;
 
-  color: #343232;
+  color: var(--gray-500);
+
+  &.dark {
+    color: var(--white);
+  }
 `;

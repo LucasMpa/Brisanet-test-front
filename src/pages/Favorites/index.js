@@ -16,7 +16,7 @@ function Favorites() {
     <>
       <HeadMenu />
       <Container className={darkTheme && "dark"}>
-        <TitlePage>
+        <TitlePage className={darkTheme && "dark"}>
           Olá, você tem {favorites.length} pokémon(s) salvos!
         </TitlePage>
       </Container>

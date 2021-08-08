@@ -16,6 +16,16 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 
+  &.dark {
+    > h2 {
+      color: var(--white);
+    }
+    > div {
+      color: var(--white);
+      border: 1px solid var(--white);
+    }
+  }
+
   > img {
     width: 50%;
     max-width: 1100px;

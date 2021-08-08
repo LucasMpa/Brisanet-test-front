@@ -4,8 +4,10 @@ const DataContext = createContext({});
 
 export const DataContextProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
-  const [selectedPage, setSelectedPage] = useState(null);
+  const [selectedPage, setSelectedPage] = useState("login");
   const [darkTheme, setDarkTheme] = useState(false);
+  const [visibleModal, setVisibleModal] = useState(false);
+  const [contentModal, setContentModal] = useState();
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export const DataContextProvider = ({ children }) => {
 
       response.results.map(async (item) => {
         const pokemons = await fetch(item.url).then((data) => data.json());
-        allPokemons.push({ ...pokemons, favorite: false });
+        allPokemons.push({ ...pokemons });
       });
 
       setPokemons(allPokemons);
@@ -33,6 +35,10 @@ export const DataContextProvider = ({ children }) => {
         selectedPage,
         favorites,
         darkTheme,
+        visibleModal,
+        contentModal,
+        setContentModal,
+        setVisibleModal,
         setDarkTheme,
         setFavorites,
         setSelectedPage,

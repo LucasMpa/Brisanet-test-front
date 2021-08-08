@@ -13,11 +13,21 @@ export const Container = styled.div`
 
 export const FilterCategory = styled.div`
   &.active {
-    background-color: #ffcb05;
+    background-color: var(--primary);
+    border: 0px solid var(--white);
   }
 
+  &.dark {
+    color: var(--white);
+    border: 1px solid var(--white);
+  }
+
+  &.dark-active {
+    color: var(--gray-500);
+    border: 0px;
+  }
   cursor: pointer;
-  border: 1px solid #6b6868;
+  border: 1px solid var(--gray-500);
   width: 145px;
   height: 42px;
   display: flex;
@@ -33,5 +43,5 @@ export const FilterCategory = styled.div`
 
   text-align: center;
 
-  color: #343232;
+  color: var(--gray-500);
 `;

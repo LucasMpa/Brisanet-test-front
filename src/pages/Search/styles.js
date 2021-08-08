@@ -14,7 +14,7 @@ export const Container = styled.div`
     width: 55%;
     height: 54px;
     background: var(--white);
-    border: 1px solid #dee0e3;
+    border: 1px solid var(--gray-100);
     box-sizing: border-box;
     border-radius: 8px;
     padding: 0 16px;
@@ -26,7 +26,7 @@ export const SearchField = styled.div`
   width: 55%;
   height: 54px;
   background: var(--white);
-  border: 1px solid #dee0e3;
+  border: 1px solid var(--gray-100);
   box-sizing: border-box;
   border-radius: 8px;
   padding: 0 16px;

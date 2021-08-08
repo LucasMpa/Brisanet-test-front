@@ -22,5 +22,6 @@ export const NotFoundMessage = styled.div`
 
   &.dark {
     background-color: var(--gray-500);
+    color: var(--white);
   }
 `;

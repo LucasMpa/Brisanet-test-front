@@ -50,9 +50,13 @@ function SeeAll() {
   return (
     <>
       <HeadMenu />
-      <Container className={darkTheme ? "dark" : ""}>
+      <Container className={darkTheme && "dark"}>
         <FilterCategory
-          className={selectedCategory === 0 ? "active" : ""}
+          className={[
+            selectedCategory === 0 && "active",
+            darkTheme && "dark",
+            darkTheme && selectedCategory === 0 && "dark-active",
+          ]}
           onClick={() => setCategory(pokemons)}
           onMouseDown={() => setSelectedCategory(0)}
         >
@@ -61,7 +65,11 @@ function SeeAll() {
         {showAllCategories().map((category, index) => {
           return (
             <FilterCategory
-              className={selectedCategory === index + 1 ? "active" : ""}
+              className={[
+                selectedCategory === index + 1 && "active",
+                darkTheme && "dark",
+                darkTheme && selectedCategory === index + 1 && "dark-active",
+              ]}
               onClick={() => setCategory(showTypeOfPokemon(category))}
               onMouseDown={() => setSelectedCategory(index + 1)}
             >

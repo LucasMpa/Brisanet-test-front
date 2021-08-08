@@ -14,6 +14,12 @@ import { useDataContext } from "../../context/DataContext.js";
 const HeadMenu = () => {
   const { setSelectedPage, selectedPage, favorites, darkTheme } =
     useDataContext();
+
+  function logoff() {
+    localStorage.removeItem("authToken");
+    setSelectedPage("login");
+  }
+
   return (
     <Menu className={darkTheme ? "dark" : ""}>
       <Logo src={LogoPokemon} alt="logo"></Logo>
@@ -45,16 +51,16 @@ const HeadMenu = () => {
         </Actions>
         <Actions
           className={[
-            selectedPage === "seeAll" ? "active" : "",
-            darkTheme ? "dark" : "",
-            selectedPage === "seeAll" && darkTheme ? "dark-selected" : "",
+            selectedPage === "seeAll" && "active",
+            darkTheme && "dark",
+            selectedPage === "seeAll" && darkTheme && "dark-selected",
           ]}
           onClick={() => setSelectedPage("seeAll")}
         >
           Ver Todos
         </Actions>
       </ContainerActions>
-      <Logoff onClick={() => setSelectedPage("login")}>
+      <Logoff className={darkTheme && "dark"} onClick={() => logoff()}>
         Sair <BiExit />
       </Logoff>
     </Menu>

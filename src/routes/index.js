@@ -7,12 +7,24 @@ import Search from "../pages/Search";
 import SeeAll from "../pages/SeeAll";
 import Favorites from "../pages/Favorites";
 import { Container } from "./styles";
+import ModalDetails from "../components/ModalDetails";
 
 function Routes() {
-  const { selectedPage, favorites, darkTheme } = useDataContext();
-  console.log(favorites);
+  const {
+    selectedPage,
+    darkTheme,
+    visibleModal,
+    setVisibleModal,
+    contentModal,
+  } = useDataContext();
+
   return (
     <Container className={darkTheme ? "dark" : ""}>
+      <ModalDetails
+        visibility={visibleModal}
+        toggle={() => setVisibleModal(!visibleModal)}
+        data={contentModal}
+      />
       {selectedPage === "favorites" && <Favorites />}
       {selectedPage === "login" && <Login />}
       {selectedPage === null && <NoContent />}

@@ -11,12 +11,17 @@ import {
   Id,
   Name,
   Sprite,
-  TypePrimary,
-  TypeSecondary,
+  Type,
 } from "./styles";
 
 const Pokecard = ({ data }) => {
-  const { setFavorites, favorites } = useDataContext();
+  const {
+    setFavorites,
+    favorites,
+    darkTheme,
+    setContentModal,
+    setVisibleModal,
+  } = useDataContext();
 
   function handleFavorites(pokemon) {
     if (favorites.includes(pokemon)) {
@@ -29,27 +34,40 @@ const Pokecard = ({ data }) => {
   }
 
   return (
-    <Container>
+    <Container className={darkTheme && "dark"}>
       <Heart
         onClick={() => handleFavorites(data)}
-        className={favorites.includes(data) ? "favorited" : ""}
+        className={[
+          favorites.includes(data) && "favorited",
+          darkTheme && "dark",
+          darkTheme && favorites.includes(data) && "dark-favorited",
+        ]}
       >
         {favorites.includes(data) ? <AiFillHeart /> : <AiOutlineHeart />}
       </Heart>
       <Sprite>
         <img src={data.sprites.front_default} alt={data.name} />
       </Sprite>
-      <Name>{capitalize(data.name)}</Name>
-      <Id>ID : {data.id}</Id>
+      <Name className={darkTheme && "dark"}>{capitalize(data.name)}</Name>
+      <Id className={darkTheme && "dark"}>ID : {data.id}</Id>
       <ContainerOfTypes>
-        <TypePrimary>{capitalize(data.types[0].type.name)}</TypePrimary>
+        <Type type={data.types[0].type.name}>
+          {capitalize(data.types[0].type.name)}
+        </Type>
 
         {data.types[1] && (
-          <TypeSecondary>{capitalize(data.types[1].type.name)}</TypeSecondary>
+          <Type type={data.types[1].type.name}>
+            {capitalize(data.types[1].type.name)}
+          </Type>
         )}
       </ContainerOfTypes>
 
-      <DetailsButton>Ver Detalhes</DetailsButton>
+      <DetailsButton
+        onClick={() => setVisibleModal(true)}
+        onMouseDown={() => setContentModal(data)}
+      >
+        Ver Detalhes
+      </DetailsButton>
     </Container>
   );
 };

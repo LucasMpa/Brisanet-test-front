@@ -6,7 +6,7 @@ export const Menu = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 65px;
-  background: #ffcb05;
+  background: var(--primary);
 
   &.dark {
     color: var(--gray-100);
@@ -23,7 +23,7 @@ export const CountFavorites = styled.span`
   width: 17px;
   height: 17px;
   color: var(--white);
-  background: #343232;
+  background: var(--gray-500);
   border-radius: 8.5px;
   display: flex;
   justify-content: center;
@@ -81,9 +81,13 @@ export const Logoff = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid #343232;
+  border: 1px solid var(--gray-500);
   box-sizing: border-box;
   border-radius: 8px;
+
+  &.dark {
+    border: 1px solid var(--gray-100);
+  }
 
   > svg {
     font-size: 16px;

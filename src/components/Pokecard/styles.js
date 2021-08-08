@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { getBackgroundType } from "../../utils/typesConfig";
 
 export const Container = styled.div`
   position: relative;
@@ -8,6 +9,10 @@ export const Container = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
+
+  &.dark {
+    background-color: var(--gray-400);
+  }
 `;
 
 export const Heart = styled.div`
@@ -22,6 +27,14 @@ export const Heart = styled.div`
       color: var(--danger);
     }
   }
+
+  &.dark,
+  .dark-favorited {
+    > svg {
+      color: var(--white);
+    }
+  }
+
   > svg {
     font-size: 25px;
   }
@@ -40,6 +53,10 @@ export const Name = styled.div`
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
+
+  &.dark {
+    color: var(--white);
+  }
 `;
 
 export const Id = styled.div`
@@ -47,7 +64,11 @@ export const Id = styled.div`
   font-weight: 500;
   font-size: 13px;
   line-height: 19px;
-  color: #8e8787;
+  color: var(--gray-300);
+
+  &.dark {
+    color: var(--gray-100);
+  }
 `;
 
 export const ContainerOfTypes = styled.div`
@@ -58,7 +79,7 @@ export const ContainerOfTypes = styled.div`
   }
 `;
 
-export const TypePrimary = styled.div`
+export const Type = styled.div`
   width: 50.53px;
   height: 20px;
   left: 147px;
@@ -66,30 +87,13 @@ export const TypePrimary = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffcb05;
+  background: ${(props) => getBackgroundType(props.type).bg};
   border-radius: 8px;
   font-style: normal;
   font-weight: 600;
   font-size: 8px;
   line-height: 12px;
-  color: #343232;
-`;
-
-export const TypeSecondary = styled.div`
-  width: 50.53px;
-  height: 20px;
-  left: 147px;
-  top: 301px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--danger);
-  border-radius: 8px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 8px;
-  line-height: 12px;
-  color: var(--white);
+  color: ${(props) => getBackgroundType(props.type).fc};
 `;
 
 export const DetailsButton = styled.div`
@@ -111,5 +115,5 @@ export const DetailsButton = styled.div`
   align-items: center;
   text-align: center;
 
-  color: #343232;
+  color: var(--gray-500);
 `;

@@ -10,7 +10,7 @@ const NoContent = () => {
     <>
       <HeadMenu />
       <Container className={darkTheme && "dark"}>
-        <Content>
+        <Content className={darkTheme && "dark"}>
           <img src={Astronaut} alt="astronaut" />
           <h2>Está meio vazio por aqui!</h2>
           <h3>Procure por pokémons para adicioná-los aos seus favoritos.</h3>
