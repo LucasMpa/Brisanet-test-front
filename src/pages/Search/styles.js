@@ -5,6 +5,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
 
+  &.dark {
+    background-color: var(--gray-500);
+  }
+
   > input {
     margin-top: 25px;
     width: 55%;

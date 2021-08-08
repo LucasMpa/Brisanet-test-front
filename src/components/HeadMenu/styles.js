@@ -7,10 +7,35 @@ export const Menu = styled.div`
   width: 100%;
   height: 65px;
   background: #ffcb05;
+
+  &.dark {
+    color: var(--gray-100);
+    background: var(--gray-400);
+  }
 `;
 
 export const Logo = styled.img`
   height: 65px;
+`;
+
+export const CountFavorites = styled.span`
+  margin-left: 5px;
+  width: 17px;
+  height: 17px;
+  color: var(--white);
+  background: #343232;
+  border-radius: 8.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+
+  &.dark {
+    background: var(--primary);
+
+    color: var(--gray-500);
+  }
 `;
 
 export const ContainerActions = styled.div`
@@ -36,6 +61,14 @@ export const Actions = styled.span`
 
   &.active {
     border-bottom: 2px solid var(--gray-500);
+  }
+  &.dark {
+    color: var(--gray-100);
+  }
+
+  &.dark-selected {
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
   }
 `;
 

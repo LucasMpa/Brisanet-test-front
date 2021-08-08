@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useDataContext } from "../../context/DataContext";
 import { capitalize } from "../../utils/charUtils";
 
@@ -17,9 +18,24 @@ import {
 const Pokecard = ({ data }) => {
   const { setFavorites, favorites } = useDataContext();
 
+  function handleFavorites(pokemon) {
+    if (favorites.includes(pokemon)) {
+      let allFavorites = [...favorites];
+      allFavorites.splice(allFavorites.indexOf(pokemon), 1);
+      setFavorites(allFavorites);
+    } else {
+      setFavorites([...favorites, pokemon]);
+    }
+  }
+
   return (
     <Container>
-      <Heart onClick={() => setFavorites([...favorites, data])}></Heart>
+      <Heart
+        onClick={() => handleFavorites(data)}
+        className={favorites.includes(data) ? "favorited" : ""}
+      >
+        {favorites.includes(data) ? <AiFillHeart /> : <AiOutlineHeart />}
+      </Heart>
       <Sprite>
         <img src={data.sprites.front_default} alt={data.name} />
       </Sprite>

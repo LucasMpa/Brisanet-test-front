@@ -11,13 +11,20 @@ export const Container = styled.div`
 `;
 
 export const Heart = styled.div`
+  cursor: pointer;
   position: absolute;
   right: 18px;
   top: 10px;
   width: 20px;
   height: 20px;
-  background: #ff3326;
-  border: 2px solid #ff3326;
+  &.favorited {
+    > svg {
+      color: var(--danger);
+    }
+  }
+  > svg {
+    font-size: 25px;
+  }
 `;
 
 export const Sprite = styled.div`

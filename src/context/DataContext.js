@@ -5,6 +5,7 @@ const DataContext = createContext({});
 export const DataContextProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
   const [selectedPage, setSelectedPage] = useState(null);
+  const [darkTheme, setDarkTheme] = useState(false);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -31,6 +32,8 @@ export const DataContextProvider = ({ children }) => {
         pokemons,
         selectedPage,
         favorites,
+        darkTheme,
+        setDarkTheme,
         setFavorites,
         setSelectedPage,
         setPokemons,

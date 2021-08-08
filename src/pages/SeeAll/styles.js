@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   padding: 20px 10%;
+  &.dark {
+    background-color: var(--gray-500);
+  }
   > :not(:first-child) {
     margin-left: 10px;
   }
@@ -13,10 +16,8 @@ export const FilterCategory = styled.div`
     background-color: #ffcb05;
   }
 
-  &:not(.active) {
-    border: 1px solid #6b6868;
-  }
   cursor: pointer;
+  border: 1px solid #6b6868;
   width: 145px;
   height: 42px;
   display: flex;

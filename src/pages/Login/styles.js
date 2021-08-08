@@ -70,4 +70,8 @@ export const TitleForm = styled.text`
   font-size: 36px;
   line-height: 54px;
   color: var(--gray-500);
+
+  &.dark {
+    color: var(--primary);
+  }
 `;

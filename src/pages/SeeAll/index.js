@@ -9,7 +9,7 @@ import { Container, FilterCategory } from "./styles";
 function SeeAll() {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
-  const { pokemons } = useDataContext();
+  const { pokemons, darkTheme } = useDataContext();
 
   function showAllCategories() {
     const getEachType = pokemons.map((data) => {
@@ -50,7 +50,7 @@ function SeeAll() {
   return (
     <>
       <HeadMenu />
-      <Container>
+      <Container className={darkTheme ? "dark" : ""}>
         <FilterCategory
           className={selectedCategory === 0 ? "active" : ""}
           onClick={() => setCategory(pokemons)}

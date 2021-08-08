@@ -7,7 +7,7 @@ import { Container, SearchField } from "./styles";
 
 export default function Search() {
   const [search, setSearch] = useState("");
-  const { pokemons } = useDataContext();
+  const { pokemons, darkTheme } = useDataContext();
   const selectedPokemon = pokemons.filter((pokemon) =>
     pokemon.name.startsWith(search)
   );
@@ -15,7 +15,7 @@ export default function Search() {
   return (
     <>
       <HeadMenu />
-      <Container>
+      <Container className={darkTheme && "dark"}>
         <SearchField>
           <input
             onChange={(e) => setSearch(e.target.value)}

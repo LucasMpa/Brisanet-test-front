@@ -5,11 +5,11 @@ import HeadMenu from "../HeadMenu";
 import { Container, Content } from "./styles";
 
 const NoContent = () => {
-  const { setSelectedPage } = useDataContext();
+  const { setSelectedPage, darkTheme } = useDataContext();
   return (
     <>
       <HeadMenu />
-      <Container>
+      <Container className={darkTheme && "dark"}>
         <Content>
           <img src={Astronaut} alt="astronaut" />
           <h2>Está meio vazio por aqui!</h2>
