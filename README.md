@@ -9,7 +9,7 @@
 
 ## Índice
 
-* [Sobre](#sobre) 
+* [Como Iniciar Na Sua Máquina](
 
 ## Como Iniciar Na Sua Máquina
 
