@@ -9,7 +9,7 @@
 
 ## Índice
 
-* [Como Iniciar Na Sua Máquina]
+* Como Iniciar Na Sua Máquina
 
 ## Como Iniciar Na Sua Máquina
 
