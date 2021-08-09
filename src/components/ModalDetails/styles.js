@@ -163,7 +163,8 @@ export const Status = styled.div`
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       min-height: 12px;
-      width: ${(props) => props.percent + "%"};
+      width: ${(props) =>
+        props.percent > 100 ? `${100}%` : `${props.percent}%`};
       background-color: var(--primary) !important;
     }
   }
